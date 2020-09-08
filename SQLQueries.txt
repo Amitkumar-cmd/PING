@@ -1,0 +1,47 @@
+When the user Signs up (obviously for the first and the last time)
+Insert into user values("<First Name>","<Last Name>","<E-mail>","<Password>","<D.O.B.>","<Profile Pic>");
+
+Login verification
+$email = "<Acepted email>"
+$password = "<Accepted password>"
+if(Select * from users where email == $email and password == $password)
+	Login successful
+	$currentUserID = Select User_ID from users where email == $email and password == $password
+else
+	login failed
+
+When the user searches for a friend (for new friend)
+Select email,First Name,Last Name,D.O.B. from user Where Exists(Select * from users where email == "<Search value>");
+
+Add friend
+Insert into friends values("<SelfID>","<Select User_ID from users where(Select email from user Where Exists(Select * from users where email == "<Search value>");
+)>");
+
+Send Message
+Insert into messages values("<SelfID>","<Select User_ID from users where(Select email from user Where Exists(Select * from users where email == "<Search value>","<Data>","<TimeStamp>","<Delivered true>");
+
+Delete for everyone
+Insert into messages values("<SelfID>","<Select User_ID from users where(Select email from user Where Exists(Select * from users where email == "<Search value>","<Data>","<TimeStamp>","<Delivered true>","<Delete Everyone true>");
+
+Delete for sender
+Insert into messages values("<SelfID>","<Select User_ID from users where(Select email from user Where Exists(Select * from users where email == "<Search value>","<Data>","<TimeStamp>","<Delivered true>","<Delete sender true>");
+
+Delete for receiver
+Insert into messages values("<SelfID>","<Select User_ID from users where(Select email from user Where Exists(Select * from users where email == "<Search value>","<Data>","<TimeStamp>","<Delivered true>","<Delete receiver true>");
+
+Assuming the design is somewhat like Whatsapp web
+When the user clicks on one name (name of friend or group)
+$friendID == Select User_ID from users where First Name = "<Displayed first name>" and Last Name = "<Displayed Last Name>";
+
+Display chat between friends
+Select Content from Message where (SenderId == $currentUserID and ReceiverID == $friendID) union (SenderId == $friendID and $currentUserID) order by timestamp;
+
+When user clicks on group name
+$groupId = Select GroupId from groups where group name ="<displayed name>";
+
+Display group chat
+Select content from groupchat where groupid = $groupid order by timestamp;
+
+Send message on group
+Insert into groupchat values("<$currentUserID>","<$groupmember>(excluding the sender)","<data>","<timestamp>","<delivered true>","<$groupID>")
+
