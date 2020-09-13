@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `friends` (
   PRIMARY KEY (`FrndShpID`),
   KEY `PersonOne` (`PersonOne`),
   KEY `PersonTwo` (`PersonTwo`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `groupmessages` (
   PRIMARY KEY (`GrpMsgID`),
   KEY `SendersID` (`SendersID`),
   KEY `ReceivingMembers` (`ReceivingMembers`(250))
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `groupstable` (
   `TotMembers` int(4) NOT NULL,
   `TotMsgs` int(4) DEFAULT '0',
   PRIMARY KEY (`GroupID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   PRIMARY KEY (`MsgID`),
   KEY `SendersID` (`SendersID`),
   KEY `ReceiversID` (`ReceiversID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `TotMsgSnt` int(4) DEFAULT '0',
   `TotMsgRcvd` int(4) DEFAULT '0',
   PRIMARY KEY (`UserID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
